@@ -1,0 +1,1 @@
+print(home.__budget)
