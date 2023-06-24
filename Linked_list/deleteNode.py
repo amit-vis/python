@@ -2,31 +2,43 @@ class Node:
     def __init__(self,data):
         self.data = data
         self.next = None
-def length(head):
-    count = 0
-    while head:
-        count +=1
-        head = head.next
-    return count
+# def length(head):
+#     count = 0
+#     while head:
+#         count +=1
+#         head = head.next
+#     return count
    
-def deleteNode(head, pos):
-    if pos < 0 or pos >= length(head):
+# def deleteNode(head, pos):
+#     if pos < 0 or pos >= length(head):
+#         return head
+
+#     if pos == 0:
+#         return head.next
+
+#     count = 0
+#     prev = None
+#     curr = head
+#     while count < pos:
+#         prev = curr
+#         curr = curr.next
+#         count += 1
+
+#     newNode = curr.next
+#     prev.next = newNode
+#     del curr
+#     return head
+
+def deleteNodeR(head,i):
+    if i<0 or head is None:
         return head
-
-    if pos == 0:
-        return head.next
-
-    count = 0
-    prev = None
-    curr = head
-    while count < pos:
-        prev = curr
-        curr = curr.next
-        count += 1
-
-    newNode = curr.next
-    prev.next = newNode
-    del curr
+    if i ==0:
+        newNode = head.next
+        del head
+        return newNode
+    
+    smallHead = deleteNodeR(head.next, i-1)
+    head.next = smallHead
     return head
 
 def printLL(head):
@@ -54,5 +66,5 @@ def takeInput():
 head = takeInput()
 printLL(head)
 pos = int(input("Enter the data here: "))
-head = deleteNode(head, pos)
+head = deleteNodeR(head, pos)
 printLL(head)
