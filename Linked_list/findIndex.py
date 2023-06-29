@@ -15,13 +15,32 @@ class Node:
 #         return count
 #     else:
 #         return -1
-def findIndex(head, index, count=0):
+# def findIndex(head, index, count=0):
+#     if head is None:
+#         return -1
+#     if head.data == index:
+#         return count
+#     else:
+#         return findIndex(head.next, index, count+1)
+
+def findIndex(head,index, count = 0):
+    # if head == None:
+    #     return -1
+    # curr = head
+    # count = 0
+    # while curr != None and curr.data != index:
+    #     curr = curr.next
+    #     count +=1
+    # if curr.data == index:
+    #     return count
+    # else:
+    #     return -1
     if head is None:
         return -1
     if head.data == index:
         return count
-    else:
-        return findIndex(head.next, index, count+1)
+    return findIndex(head.next, index, count+1)
+    
     
 
 def printLL(head):
@@ -45,6 +64,7 @@ def takeInput():
             tail.next = newNode
             tail = newNode
     return head
+
     
 head = takeInput()
 printLL(head)
