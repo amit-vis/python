@@ -1,0 +1,2 @@
+root = takeInput()
+printTree(root)

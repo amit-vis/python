@@ -78,17 +78,31 @@ class Node:
         self.data = data
         self.next = None
 
+# def reverseLL(head):
+#     prev = None
+#     next_node = None
+#     curr = head
+#     while curr is not None:
+#         next_node = curr.next
+#         curr.next = prev
+#         prev = curr
+#         curr = next_node
+#     newHead = prev
+#     return newHead
+
 def reverseLL(head):
+    if head is None:
+        return None
     prev = None
     next_node = None
     curr = head
-    while curr is not None:
+    while curr:
         next_node = curr.next
         curr.next = prev
         prev = curr
         curr = next_node
-    newHead = prev
-    return newHead
+    newNode = prev
+    return newNode
 
 
 def printLL(head):
